@@ -1,26 +1,19 @@
 # WatchableData
 [![GitHub license](https://img.shields.io/github/license/incognito201/WatchableData)](https://github.com/incognito201/WatchableData/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/incognito201/WatchableData)](https://github.com/incognito201/WatchableData/stargazers)
+[![NuGet](https://img.shields.io/nuget/v/WatchableData)](https://www.nuget.org/packages/WatchableData)
 
 Constrói observables a partir de objetos que implementam INotifyPropertyChanged, INotifyCollectionChanged ou INotifyDataErrorInfo.
 
-## Um Exemplo
-```cs
-this.WhenPropertyChanged(x => x.Quantity)
-    .Subscribe(e =>
-    {
-        if(Quantity < 1)
-        {
-            AddError(nameof(Quantity), "Invalid quantity!");
-        }
-        else
-        {
-            RemoveErrors(nameof(Quantity));
-        }
-    });
+## Get Started
+### 1. Instalação
+Use o NuGet Package Manager para instalar o pacote ou use o comando a seguir no NuGet Package Manager Console.
+```	
+PM> Install-Package WatchableData
 ```
 
-## Coleção
+## Um Exemplo
+- Monitorando múltiplas propriedades de um item
 ```cs
 public decimal Total
 {
@@ -37,6 +30,7 @@ OrderItems.WhenAnyItemPropertyChanged(x => x.Quantity, x => x.Price)
     });
 ```
 
+--------------------------------
 **Atenção:** Os observables precisam ser descartados após a inscrição para evitar vazamento de memória.
 
 ## Considerações
