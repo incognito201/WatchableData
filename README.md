@@ -6,6 +6,22 @@ Constrói observables a partir de objetos que implementam INotifyPropertyChanged
 
 ## Um Exemplo
 ```cs
+this.WhenPropertyChanged(x => x.Quantity)
+    .Subscribe(e =>
+    {
+        if(Quantity < 1)
+        {
+            AddError(nameof(Quantity), "Invalid quantity!");
+        }
+        else
+        {
+            RemoveErrors(nameof(Quantity));
+        }
+    });
+```
+
+## Coleção
+```cs
 public decimal Total
 {
     get => OrderItems.Sum(i => i.Quantity * i.Price);
