@@ -1,0 +1,29 @@
+﻿<Window x:Class="WatchableData.Demo.Fody.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WatchableData.Demo.Fody"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" ItemsSource="{Binding OrderItems}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Item" Binding="{Binding Item}" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Margin="10" Orientation="Horizontal">
+            <TextBlock FontSize="24" Text="Total: " />
+            <TextBlock FontSize="24" Text="{Binding Total}" />
+        </StackPanel>
+    </Grid>
+</Window>
