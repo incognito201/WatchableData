@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
+using WatchableData.Mvvm;
 
 namespace WatchableData.Collection
 {
@@ -22,7 +23,7 @@ namespace WatchableData.Collection
         {
             foreach(var item in list)
             {
-                this.Items.Add(item);
+                this.Add(item);
             }
         }
 
