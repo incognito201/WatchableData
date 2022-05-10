@@ -74,6 +74,9 @@
     <Compile Include="Utils\ObjectExtensions.cs" />
     <Compile Include="Utils\PropertyExpressionExtensions.cs" />
     <Compile Include="Utils\PropertyUtil.cs" />
+    <Compile Include="Utils\ComparableExtensions.cs" />
+    <Compile Include="Validation\ValidationArgs.cs" />
+    <Compile Include="Validation\ValidationRules.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

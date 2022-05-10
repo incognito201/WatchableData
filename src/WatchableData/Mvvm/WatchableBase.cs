@@ -38,27 +38,27 @@ namespace WatchableData.Mvvm
             private set { SetProperty(ref _hasErrors, value); }
         }
 
-        protected void AddError(string error, [CallerMemberName] string propertyName = null)
+        public void AddError(string error, [CallerMemberName] string propertyName = null)
         {
             RemoveErrors(propertyName);
             AddErrors(new List<string> { error }, propertyName);
         }
 
-        protected void AddErrors(List<string> error, [CallerMemberName] string propertyName = null)
+        public void AddErrors(List<string> error, [CallerMemberName] string propertyName = null)
         {
             _errors[propertyName] = error;
             HasErrors = _errors.Count > 0;
             RaisePropertyErrorChanged(propertyName);
         }
 
-        protected void RemoveErrors([CallerMemberName] string propertyName = "")
+        public void RemoveErrors([CallerMemberName] string propertyName = "")
         {
             _errors.Remove(propertyName);
             HasErrors = _errors.Count > 0;
             RaisePropertyErrorChanged(propertyName);
         }
 
-        protected void RaisePropertyErrorChanged([CallerMemberName] string propertyName = null)
+        public void RaisePropertyErrorChanged([CallerMemberName] string propertyName = null)
         {
             OnPropertyErrorChanged(new DataErrorsChangedEventArgs(propertyName));
         }
