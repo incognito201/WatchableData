@@ -1,6 +1,5 @@
 # WatchableData
 [![GitHub license](https://img.shields.io/github/license/incognito201/WatchableData)](https://github.com/incognito201/WatchableData/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/incognito201/WatchableData)](https://github.com/incognito201/WatchableData/stargazers)
 [![NuGet](https://img.shields.io/nuget/v/WatchableData)](https://www.nuget.org/packages/WatchableData)
 
 Constrói observables a partir de objetos que implementam INotifyPropertyChanged, INotifyCollectionChanged ou INotifyDataErrorInfo.
