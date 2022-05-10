@@ -11,15 +11,19 @@ namespace WatchableData.Collection
     public class WatchableCollection<T> : ObservableCollection<T>
         where T : INotifyPropertyChanged, INotifyDataErrorInfo
     {
+        private readonly bool _cleanup;
+
         public event EventHandler<PropertyChangedEventArgs<T>> ItemPropertyChanged;
         public event EventHandler<DataErrorsChangedEventArgs<T>> ItemPropertyErrorsChanged;
         public event EventHandler<ICollection<T>> Cleaned;
 
-        public WatchableCollection()
+        public WatchableCollection(bool cleanup = true)
         {
+            _cleanup = cleanup;
         }
 
-        public WatchableCollection(IEnumerable<T> list)
+        public WatchableCollection(IEnumerable<T> list, bool cleanup = true)
+            : this(cleanup)
         {
             foreach(var item in list)
             {
@@ -49,6 +53,10 @@ namespace WatchableData.Collection
         {
             WeakEventManager<T, PropertyChangedEventArgs>.RemoveHandler(item, "PropertyChanged", Item_PropertyChanged);
             WeakEventManager<T, DataErrorsChangedEventArgs>.RemoveHandler(item, "ErrorsChanged", Item_ErrorsChanged);
+            if(_cleanup && item is ICleanup cleanup)
+            {
+                cleanup.Cleanup();
+            }
         }
 
         protected override void InsertItem(int index, T item)

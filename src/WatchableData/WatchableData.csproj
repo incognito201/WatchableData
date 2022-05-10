@@ -66,6 +66,7 @@
     <Compile Include="Models\PropertyChangedEventArgs.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
+    <Compile Include="Mvvm\ICleanup.cs" />
     <Compile Include="Mvvm\WatchableBase.cs" />
     <Compile Include="NotifyDataErrorInfoExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
