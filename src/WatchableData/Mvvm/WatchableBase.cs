@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace WatchableData.Mvvm
 {
-    public class WatchableBase : BindableBase, INotifyDataErrorInfo
+    public abstract class WatchableBase : BindableBase, INotifyDataErrorInfo
     {
         private readonly Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
 
